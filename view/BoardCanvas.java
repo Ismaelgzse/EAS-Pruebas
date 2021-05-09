@@ -28,7 +28,7 @@ import static ui.GUIClient.loadImage;
 
 @SuppressWarnings("serial")
 public class BoardCanvas extends JPanel {
-    //Rectangle casillaRoja = new Rectangle(0,0,5,5);
+    Rectangle casillaRoja = new Rectangle(0,0,5,5);
 
 
     /**
@@ -109,7 +109,7 @@ public class BoardCanvas extends JPanel {
     /**
      * This method ask gui for model.game's status, and update the display of player panel.
      */
-    public void update() {
+    public Rectangle update() {
         Rectangle casillaRoja = new Rectangle(0,0,5,5);
 
         WeaponToken[] weaponTokens = gui.getWeaponTokens();
@@ -177,7 +177,7 @@ public class BoardCanvas extends JPanel {
 
         // repaint
         repaint();
-        //return casillaRoja;
+        return casillaRoja;
     }
 
     /**
@@ -353,9 +353,9 @@ public class BoardCanvas extends JPanel {
         super.paintComponent(g);
         g.drawImage(GAME_BOARD, PADDING_LEFT, PADDING_TOP, this);
         // coloreamos la casillaDelJugador a rojo
-        //Graphics2D g2 = (Graphics2D) g;
-        //g2.setPaint(Color.red);
-        //g2.fill(casillaRoja);
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setPaint(Color.red);
+        g2.fill(casillaRoja);
 
         /*
          * TODO draw rectangle on movable positions, so that a clicking on it can actually
